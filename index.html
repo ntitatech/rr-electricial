@@ -1,0 +1,548 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R & R Electrical | Cape Town Electrician & Solar Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#F3B110', // Custom yellow/gold from hero ref
+                        brandYellowHover: '#D99B00',
+                        brandDark: '#0d1520',
+                        brandNavy: '#1E293B',
+                        brandAccent: '#10B981', // WhatsApp green accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(13, 21, 32, 0.75) 0%, rgba(13, 21, 32, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .whatsapp-float {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brandYellow selection:text-slate-900">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Section without borders -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://i.postimg.cc/rsVC6hYg/RR-Electrical-Logo-2.png" 
+                     alt="R & R Electrical Logo" 
+                     class="h-12 md:h-14 w-auto object-contain"
+                     onerror="this.onerror=null; this.src='https://placehold.co/200x60/ffffff/0d1520?text=R%26R+ELECTRICAL';" />
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-slate-700 hover:text-brandYellow font-medium transition-colors">About Us</a>
+                <a href="#services" class="text-slate-700 hover:text-brandYellow font-medium transition-colors">Services</a>
+                <a href="#why-us" class="text-slate-700 hover:text-brandYellow font-medium transition-colors">Why Choose Us</a>
+                <a href="#contact" class="text-slate-700 hover:text-brandYellow font-medium transition-colors">Contact</a>
+                <button onclick="openQuoteModal()" class="bg-brandYellow text-slate-900 font-semibold px-5 py-2.5 rounded-md hover:bg-brandYellowHover transition-all duration-200">
+                    Request a quote ↗
+                </button>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="flex md:hidden items-center">
+                <button id="menuBtn" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:text-brandYellow focus:outline-none" aria-label="Main menu">
+                    <span class="text-base font-semibold mr-2">Menu</span>
+                    <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#about" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-md">About Us</a>
+            <a href="#services" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-md">Specializing In</a>
+            <a href="#why-us" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-md">Why Choose Us</a>
+            <a href="#contact" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-md">Contact Us</a>
+            <div class="pt-2">
+                <button onclick="toggleMenu(); openQuoteModal()" class="w-full text-center bg-brandYellow text-slate-900 font-bold px-4 py-3 rounded-md hover:bg-brandYellowHover transition-colors">
+                    Request a quote ↗
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Matching image design exactly) -->
+    <section class="hero-bg min-h-[calc(100vh-80px)] flex items-center relative py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto w-full pt-4 pb-12">
+            <!-- Tagline -->
+            <div class="mb-4">
+                <span class="text-brandYellow font-bold tracking-widest uppercase text-sm md:text-base">
+                    CAPE TOWN · WESTERN CAPE
+                </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Powering a <br class="hidden sm:inline" />
+                <span class="text-brandYellow">better tomorrow.</span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-2xl font-light leading-relaxed mb-10">
+                Professional electrical and solar solutions delivered with safe workmanship and dependable service.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row sm:items-center space-y-5 sm:space-y-0 sm:space-x-6">
+                <button onclick="openQuoteModal()" class="bg-brandYellow text-slate-900 font-bold text-lg px-8 py-4 rounded-none hover:bg-brandYellowHover transition-colors duration-200 shadow-lg inline-flex items-center justify-center space-x-2 w-full sm:w-auto">
+                    <span>Request a quote</span>
+                    <span class="text-xl">↗</span>
+                </button>
+
+                <a href="tel:0641437036" class="text-white hover:text-brandYellow font-semibold text-lg underline underline-offset-8 transition-colors flex items-center justify-center sm:justify-start pt-2 sm:pt-0">
+                    Call 064 143 7036
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats / Trust Bar -->
+    <section class="bg-slate-900 text-white py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-3">
+                <div class="text-3xl font-extrabold text-brandYellow mb-1">20+</div>
+                <div class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium">Years Experience</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl font-extrabold text-brandYellow mb-1">24/7</div>
+                <div class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium">Emergency Service</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl font-extrabold text-brandYellow mb-1">100%</div>
+                <div class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium">Free Quotations</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl font-extrabold text-brandYellow mb-1">4.7 ★</div>
+                <div class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium">Google Rating (107+)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brandYellow font-bold uppercase tracking-wider text-sm">About R & R Electrical</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-6">
+                        Reliable Electrical & Solar Power Solutions Across Cape Town
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                        Call today for all your electrical requirements with 20 years of experience. At <strong>R&R Electrical</strong>, we provide high-grade domestic, commercial, and industrial electrical services.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-6 text-base">
+                        From basic repairs and certificate of compliance inspections (C.O.C) to complex inverter, solar, and back-up power installations, our certified team is available with a 24-hour call-out service to keep your power running smoothly.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-brandYellow text-lg"></i>
+                            <span class="text-slate-700 font-medium">20 Years of Servicing the Cape Town Area</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-brandYellow text-lg"></i>
+                            <span class="text-slate-700 font-medium">100% Guaranteed Satisfaction & Safe Workmanship</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-brandYellow text-lg"></i>
+                            <span class="text-slate-700 font-medium">FREE Quotations with No Hidden Fees</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" 
+                         alt="Electrician Work" 
+                         class="rounded-xl shadow-xl w-full h-96 object-cover"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Electrical+Work';" />
+                    <div class="absolute -bottom-6 -left-6 bg-brandYellow text-slate-900 p-6 rounded-lg shadow-lg hidden sm:block">
+                        <p class="font-bold text-xl">Need Immediate Help?</p>
+                        <p class="text-sm font-medium mt-1">Our 24-Hour Callout Team is Ready</p>
+                        <a href="tel:0641437036" class="inline-block mt-3 bg-slate-900 text-white font-semibold px-4 py-2 rounded text-sm hover:bg-slate-800">
+                            Call 064 143 7036
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializing In / Services Section -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandYellow font-bold uppercase tracking-wider text-sm">Our Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Specializing In</h2>
+                <p class="text-slate-600 mt-3 text-base">Comprehensive electrical solutions tailored for residential, commercial, and solar backup requirements.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Fault Finding & Repairs</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">General fault finding, earth leakages, fixing circuit breakers, plugs, outlets, and switches.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-solar-panel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Solar & Back-Up Power</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Generator and Inverter installations, solar panels, and complete backup power solutions.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Certificates of Compliance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Certified C.O.C Inspections and property transfer electrical safety compliance tests.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Lighting & LED Conversions</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">L.E.D Conversions, security & design lighting, ceiling fans, recessed and track lighting.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Pool & Geyser Systems</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Pool pump motors supply/install, Pool D.B boards, geysers elements, thermostats, and timers.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-brandYellow flex items-center justify-center rounded-lg mb-4 text-xl">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Alterations & Renovations</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">New electrical installations, rewiring, stove installations, cabling, and service upgrades.</p>
+                </div>
+            </div>
+
+            <!-- List of All Specialties -->
+            <div class="mt-12 bg-white rounded-xl p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Complete List of Specialized Services</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm text-slate-700">
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>General Fault Finding</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>L.E.D Conversions</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Pool Pump Motors Supply & Install</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Pool D.B Distribution Boards</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Electrical Inspections</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Geyser Elements / Timers</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Fixing Earth Leakages</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Generator & Inverter Systems</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Stove & Fixture Installations</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Circuit Overload Solutions</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Home Wiring and Re-wiring</span></div>
+                    <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brandYellow"></i><span>Ceiling Fan Installations</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandYellow font-bold uppercase tracking-wider text-sm">Our Guarantee</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">You Can Also Expect</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 text-center border border-slate-100 rounded-xl bg-slate-50 hover:border-brandYellow transition-all">
+                    <div class="w-16 h-16 bg-brandYellow text-slate-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">24/7 Emergency Service</h3>
+                    <p class="text-slate-600 text-sm">Round the clock emergency assistance for power trips and urgent electrical repairs.</p>
+                </div>
+
+                <div class="p-6 text-center border border-slate-100 rounded-xl bg-slate-50 hover:border-brandYellow transition-all">
+                    <div class="w-16 h-16 bg-brandYellow text-slate-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">100% Satisfaction</h3>
+                    <p class="text-slate-600 text-sm">Quality craftsmanship backed by our 100% customer satisfaction guarantee.</p>
+                </div>
+
+                <div class="p-6 text-center border border-slate-100 rounded-xl bg-slate-50 hover:border-brandYellow transition-all">
+                    <div class="w-16 h-16 bg-brandYellow text-slate-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Fast Response</h3>
+                    <p class="text-slate-600 text-sm">Prompt dispatch across Durbanville and greater Cape Town region.</p>
+                </div>
+
+                <div class="p-6 text-center border border-slate-100 rounded-xl bg-slate-50 hover:border-brandYellow transition-all">
+                    <div class="w-16 h-16 bg-brandYellow text-slate-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Affordable Rates</h3>
+                    <p class="text-slate-600 text-sm">High-quality professional service with free quotes and affordable rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="text-brandYellow font-bold uppercase tracking-wider text-sm">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-6">Contact R & R Electrical</h2>
+                    <p class="text-slate-300 leading-relaxed mb-8">
+                        Have an emergency or need a free quotation for your residential, commercial or solar installation? Connect with us directly or request an instant WhatsApp quotation.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brandYellow text-2xl mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Address</h4>
+                                <p class="text-slate-300">Pascali St, Durbanville, Cape Town, 7550</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brandYellow text-2xl mt-1"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Phone Number</h4>
+                                <a href="tel:0641437036" class="text-slate-300 hover:text-brandYellow transition-colors">064 143 7036</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brandYellow text-2xl mt-1"><i class="fa-solid fa-business-time"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Operating Hours</h4>
+                                <p class="text-emerald-400 font-semibold">Open 24 Hours (7 Days a Week)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-slate-800 flex items-center space-x-4">
+                        <span class="text-slate-400 text-sm">Direct Contact Options:</span>
+                        <a href="tel:0641437036" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors flex items-center space-x-2">
+                            <i class="fa-solid fa-phone text-brandYellow"></i>
+                            <span>Call App</span>
+                        </a>
+                        <button onclick="openQuoteModal()" class="bg-brandYellow hover:bg-brandYellowHover text-slate-900 px-4 py-2 rounded-md text-sm font-semibold transition-colors flex items-center space-x-2">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Request Quote</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Embedded Map / Visual Contact Card -->
+                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                    <h3 class="text-2xl font-bold mb-4">Request a Free Quote</h3>
+                    <p class="text-slate-300 text-sm mb-6">Fill out the quick quote form below to send an instant pre-formatted WhatsApp message directly to our technicians.</p>
+                    
+                    <form onsubmit="handleQuickQuote(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Your Name</label>
+                            <input type="text" id="quickName" required placeholder="e.g. John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brandYellow">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Area / Suburb in Cape Town</label>
+                            <input type="text" id="quickArea" placeholder="e.g. Durbanville / Bellville" class="w-full bg-slate-900 border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brandYellow">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Service Required</label>
+                            <select id="quickService" class="w-full bg-slate-900 border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brandYellow">
+                                <option value="General Fault Finding">General Fault Finding / Electrical Repair</option>
+                                <option value="Inverter & Solar Systems">Inverter & Solar Backup Power</option>
+                                <option value="Certificate of Compliance (C.O.C)">Certificate of Compliance (C.O.C)</option>
+                                <option value="Geyser / Pool Motors">Geyser or Pool Motor Maintenance</option>
+                                <option value="New Electrical Installation">New Installation / Renovation</option>
+                                <option value="Other Electrical Service">Other Service</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Brief Description</label>
+                            <textarea id="quickDesc" rows="3" placeholder="Describe the issue or required work..." class="w-full bg-slate-900 border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brandYellow"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brandAccent hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-md transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Send Quote Request via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <p class="text-sm">&copy; <span id="year"></span> R & R Electrical. All rights reserved. Cape Town, Western Cape.</p>
+            <div class="mt-4 sm:mt-0 flex justify-center space-x-6 text-sm">
+                <a href="#about" class="hover:text-white">About</a>
+                <a href="#services" class="hover:text-white">Services</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Pill Button (Matching bottom right screenshot requirement) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/27641437036?text=Hello%20R%26R%20Electrical,%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="whatsapp-float bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-full flex items-center space-x-3 transition-transform hover:scale-105 duration-200">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span class="text-base font-semibold">WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white text-slate-900 rounded-xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeQuoteModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold mb-1 text-slate-900">Request a Free Quote</h3>
+            <p class="text-slate-600 text-sm mb-6">Select your needs to automatically construct a formatted request for WhatsApp.</p>
+
+            <form onsubmit="handleModalQuote(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name *</label>
+                    <input type="text" id="modalName" required placeholder="John Doe" class="w-full border border-slate-300 rounded-md px-3 py-2.5 focus:ring-2 focus:ring-brandYellow focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Cape Town Suburb / Location</label>
+                    <input type="text" id="modalLocation" placeholder="e.g. Durbanville" class="w-full border border-slate-300 rounded-md px-3 py-2.5 focus:ring-2 focus:ring-brandYellow focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Service Required *</label>
+                    <select id="modalService" class="w-full border border-slate-300 rounded-md px-3 py-2.5 focus:ring-2 focus:ring-brandYellow focus:outline-none text-sm">
+                        <option value="General Fault Finding">General Fault Finding</option>
+                        <option value="Solar & Inverter Solutions">Solar & Inverter Installations</option>
+                        <option value="Certificate of Compliance (C.O.C)">Certificate of Compliance (C.O.C)</option>
+                        <option value="Geyser Element/Thermostat">Geyser Repairs / Timers</option>
+                        <option value="Pool Pump Motor / DB Board">Pool Pump / Pool DB Board</option>
+                        <option value="Lighting & LED Conversions">Lighting / LED Conversion</option>
+                        <option value="Electrical Renovation & Wiring">Electrical Renovation / Rewiring</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Details / Emergency Info</label>
+                    <textarea id="modalDetails" rows="3" placeholder="Please describe what needs to be fixed or installed..." class="w-full border border-slate-300 rounded-md px-3 py-2.5 focus:ring-2 focus:ring-brandYellow focus:outline-none text-sm"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-md transition-colors flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Redirect to WhatsApp</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Hamburger menu toggle logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Quote Modal toggle logic
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target === modal) {
+                closeQuoteModal();
+            }
+        }
+
+        // Format and send Quick Quote to WhatsApp
+        function handleQuickQuote(e) {
+            e.preventDefault();
+            const name = document.getElementById('quickName').value;
+            const area = document.getElementById('quickArea').value || 'Cape Town';
+            const service = document.getElementById('quickService').value;
+            const desc = document.getElementById('quickDesc').value;
+
+            const text = `Hello R&R Electrical,%0A%0AI would like to request a FREE quotation.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Location:* ${encodeURIComponent(area)}%0A*Service:* ${encodeURIComponent(service)}%0A*Details:* ${encodeURIComponent(desc || 'N/A')}`;
+
+            window.open(`https://wa.me/27641437036?text=${text}`, '_blank');
+        }
+
+        // Format and send Modal Quote to WhatsApp
+        function handleModalQuote(e) {
+            e.preventDefault();
+            const name = document.getElementById('modalName').value;
+            const location = document.getElementById('modalLocation').value || 'Cape Town';
+            const service = document.getElementById('modalService').value;
+            const details = document.getElementById('modalDetails').value;
+
+            const text = `Hello R&R Electrical,%0A%0AI would like to request a quote.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Location:* ${encodeURIComponent(location)}%0A*Service Required:* ${encodeURIComponent(service)}%0A*Additional Details:* ${encodeURIComponent(details || 'N/A')}`;
+
+            closeQuoteModal();
+            window.open(`https://wa.me/27641437036?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+```
